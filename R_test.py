@@ -1,5 +1,27 @@
 # TODO 用ctypes调用c代码进行验证对比
 
+# import ctypes
+# import numpy as np
+# import pinocchio as pin
+
+# # 加载 C 库
+# lib = ctypes.CDLL('./spinor.so')
+# lib.spatial_rotate_z.argtypes = [ctypes.c_double, np.ctypeslib.ndpointer(dtype=np.float64, shape=(6, 6))]
+
+# # 调用 C 函数
+# c_result = np.zeros((6, 6), dtype=np.float64)
+# lib.spatial_rotate_z(np.pi / 4, c_result)  # 45°
+
+# # Pinocchio 计算
+# model = pin.Model()
+# joint = pin.JointModelRX()  # 示例关节
+# data = model.createData()
+# pin.spatialRotation(joint.rotation())  # 对比旋量
+
+# print("C 计算结果:\n", c_result)
+# print("Pinocchio 结果:\n", data.oMi[1].rotation())  # 假设第一个关节
+###################################################################################
+
 # 物体初始在Pw=[0,0,0]T
 # 运动指令：1、绕固定坐标系是z轴旋转30度
 #          2、沿固定坐标系的x轴移动+3米
